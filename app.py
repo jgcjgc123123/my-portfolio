@@ -62,6 +62,11 @@ div[data-testid="stHorizontalBlock"] {
     gap: 0.5rem !important; /* This is the magic line that brings them closer */
 }
 
+/* This makes the progress bar color match your theme */
+.stProgress > div > div > div > div {
+    background-image: linear-gradient(to right, #BBDEFB, #1565C0) !important;
+}
+
     </style>
 
     """,
@@ -106,7 +111,7 @@ st.markdown(
 
 # Columns for Layout
 
-col1, col2 = st.columns(2)
+col1, spacer, col2 = st.columns([1, 0.1, 1])
 
 with col1:
     st.header("About Me")
@@ -116,7 +121,25 @@ with col1:
     I'm playing around with Streamlit in building my first basic app!
     """)
 
+    st.header("Goals")
+    st.checkbox("Finish Applied AI Streamlit activity", value=True)
+    st.checkbox("Study for Networking 2 Prelims tomorrow", value=False)
+    st.checkbox("Start working on Capstone 1 Problem Exploration", value=False)
+    st.checkbox("Go to sleep", value=False)
+
+
 with col2:
+    st.header("Interests")
+    
+    st.write("🎨 UI/UX Design")
+    st.progress(85)
+
+    st.write("💻 Coding")
+    st.progress(70)
+    
+    st.write("✨ Applied AI")
+    st.progress(90)
+
     st.header("Skills")
     s1, s2, s3, s4 = st.columns(4)
     with s1:
@@ -144,17 +167,58 @@ st.markdown(
 tab1, tab2, tab3 = st.tabs(["Kocoa", "E-vents", "Eupemia"])
 
 with tab1:
-    st.write("Kocoa is a simple e-commerce web app in React submitted last semester. | [Github](https://github.com/RoverCyrill/CSIT340-Kocoa)")
+    st.write("Kocoa E-Commerce | [Github](https://github.com/RoverCyrill/CSIT340-Kocoa)")
+    st.image("Screenshot 2026-02-15 085624.png")
+    st.write("Last semester, I worked with my teammates in coming up with a simple e-commerce website in our React subject. That taught me to be more of a team player, and strengthening my skills in that area.")
 with tab2:
-    st.write("E-vents is an events ticketing app, available in mobile and web. | [Figma](https://www.figma.com/proto/AT4yuhsrrMGk7PAK6aVBOW/E-vents--Event-Management-and-Ticketing-System?node-id=35-145&p=f&t=idwAxkbQg5MmrmcY-1&scaling=scale-down&content-scaling=fixed&page-id=6%3A319) ")
+    st.write("E-vents Tickets | [Figma](https://www.figma.com/proto/AT4yuhsrrMGk7PAK6aVBOW/E-vents--Event-Management-and-Ticketing-System?node-id=35-145&p=f&t=idwAxkbQg5MmrmcY-1&scaling=scale-down&content-scaling=fixed&page-id=6%3A319) ")
+    st.image("e-vents.png")
+    st.write("Another team project that I contributed to, perhaps longer ago. I made screens of the mobile prototype in Figma and I remember contributing to this project as being fun.")
 with tab3:
-    st.write("Eupemia is an online shop on web, focusing on jewelry and accessory products. | [Figma](https://www.figma.com/proto/zmOr59oiOMehtILpVlcWAn/Eupemia-Website?node-id=89-78&starting-point-node-id=89%3A78&scaling=scale-down-width&content-scaling=fixed&t=v5yuk0QxGgY8HCQ0-1)")
+    st.write("Eupemia Accessories | [Figma](https://www.figma.com/proto/zmOr59oiOMehtILpVlcWAn/Eupemia-Website?node-id=89-78&starting-point-node-id=89%3A78&scaling=scale-down-width&content-scaling=fixed&t=v5yuk0QxGgY8HCQ0-1)")
+    st.image("eupemia.png")
+    st.write("Now this one is so long ago and is actually my first ever prototype in Figma, but I love it so much because I made this in honor of our real life business which is kinda on hold for now as I am stil a student... who knows if I might come back to this in the future and make it an actual thing.")
 
+st.divider()
+
+# Certs Section
+st.markdown(
+    f"""
+    <div style="display: flex; align-items: center;">
+        <img src="https://cdn3.emoji.gg/emojis/58835-cinnamoroll-earsup.png" style="width: 55px; margin-right: 10px;">
+        <h1 style = "font-weight: 500;">My Certificates</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    inner_c1, inner_c2, inner_c3 = st.columns([1, 3, 1])
+    with inner_c2:
+        st.image("blob.png", use_container_width=True)
+
+with col2:
+    inner_c4, inner_c5, inner_c6 = st.columns([1, 3, 1])
+    with inner_c5:
+        st.image("blob (1).png", use_container_width=True)
+
+st.write("I got these certificates from last semester's AWS Cloud elective powered by Accenture.")
+
+st.divider()
 
 # Contact Form Component
-st.divider()
-st.header("📫 Get in Touch")
-name = st.text_input("Name")
+st.markdown(
+    f"""
+    <div style="display: flex; align-items: center;">
+        <img src="https://cdn3.emoji.gg/emojis/6231-cinnarainbow.png" style="width: 60px; margin-right: 10px;">
+        <h1 style = "font-weight: 500;">My Inbox</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+name = st.text_input("Your Name:")
 message = st.text_area("Drop a message for me!")
 if st.button("Submit"):
     st.balloons()
