@@ -16,21 +16,21 @@ st.markdown(
     div[data-testid="stSlider"] [data-baseweb="slider"] > div [role="slider"] {
         background-color: #1565C0 !important;
     }
-    /* This targets the colored part of the slider track */
+    /* Slider track */
     div[data-testid="stSlider"] [data-baseweb="slider"] > div > div > div {
         background-color: #1565C0 !important;
     }
     div[data-testid="stThumbValue"] { color: #1565C0 !important; }
 
-    /* Fix the Tabs (My Projects): Underline and Text */
+    /* Tabs (My Projects): Underline and Text */
     button[data-baseweb="tab"] p { color: #1565C0 !important; }
     div[data-testid="stTabHighlight"] { background-color: #1565C0 !important; }
 
-    /* Fix the Progress Bars (Project Progress) */
+    /* Progress Bars (Project Progress) */
     div[data-testid="stProgress"] > div > div > div > div {
         background-color: #1565C0 !important;
     }
-/* This targets all Streamlit buttons */
+    /* Buttons */
     .stButton > button {
         background: linear-gradient(135deg, #BBDEFB 0%, #90CAF9 100%) !important;
         # color: #1565C0 !important;
@@ -42,7 +42,7 @@ st.markdown(
         width: 100%;
     }
 
-    /* Add a slight hover effect to make it feel interactive */
+    /* Hover effect */
     .stButton > button:hover {
         border: 1px solid #1565C0 !important;
         background: linear-gradient(140deg, #BBDEFB 25%, #90CAF9 100%) !important;
@@ -51,21 +51,21 @@ st.markdown(
         transform: scale(1.02);
     }
 
-/* Shrinks the gap between columns in the Skills section */
-[data-testid="column"] {
-    width: calc(25% - 5px) !important;
-    flex: 1 1 calc(25% - 5px) !important;
-    min-width: calc(25% - 5px) !important;
-}
+    /* Shrinks the gap between columns in the Skills section */
+    [data-testid="column"] {
+       width: calc(25% - 5px) !important;
+       flex: 1 1 calc(25% - 5px) !important;
+       min-width: calc(25% - 5px) !important;
+    }
 
-div[data-testid="stHorizontalBlock"] {
-    gap: 0.5rem !important; /* This is the magic line that brings them closer */
-}
+    div[data-testid="stHorizontalBlock"] {
+       gap: 0.5rem !important; /* This is the magic line that brings them closer */
+    }
 
-/* This makes the progress bar color match your theme */
-.stProgress > div > div > div > div {
-    background-image: linear-gradient(to right, #BBDEFB, #1565C0) !important;
-}
+    /* Progress bar */
+    .stProgress > div > div > div > div {
+       background-image: linear-gradient(to right, #BBDEFB, #1565C0) !important;
+    }
 
     </style>
 
